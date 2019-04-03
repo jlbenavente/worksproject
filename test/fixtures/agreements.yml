@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  final_price: 1
+  date: 2019-04-02 21:05:38
+  payed?: false
+  user_id: 1
+  joboffer_id: 1
+
+two:
+  final_price: 1
+  date: 2019-04-02 21:05:38
+  payed?: false
+  user_id: 1
+  joboffer_id: 1
