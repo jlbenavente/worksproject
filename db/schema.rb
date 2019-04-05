@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_000557) do
+ActiveRecord::Schema.define(version: 2019_04_05_222229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_04_03_000557) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "speaker_one_id"
+    t.integer "speaker_two_id"
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "joboffers", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -54,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_04_03_000557) do
     t.string "region"
     t.string "commune"
     t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.text "body"
+    t.integer "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
