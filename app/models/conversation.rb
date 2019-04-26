@@ -1,5 +1,5 @@
 class Conversation < ApplicationRecord
-  has_one :joboffer
+  belongs_to :joboffer
   has_many :messages
 
   belongs_to :speaker_one, class_name: 'User', foreign_key: 'speaker_one_id'
