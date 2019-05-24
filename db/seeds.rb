@@ -7,25 +7,40 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# 12.times do |i|
+#   Joboffer.create!(
+#     title: Faker::Job.title,
+#     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quia libero',
+#     photo: "http://lorempixel.com/400/200/business/#{i + 1}/",
+#     budget: Faker::Commerce.price.to_i,
+#     user: Faker::TvShows::GameOfThrones.character,
+#     skill: Faker::Job.position,
+#     location: Faker::Nation.capital_city
+
+#     )
+# end
+
+
   ubicacion = Location.create!(
     region:'metropolitana', 
-    commune: 'puente alto', 
+    commune:'padre hurtado', 
     city: 'santiago')
 
-  usuario =User.create!(
+  usuario = User.create!(
     name:Faker::TvShows::GameOfThrones.character,
     last_name:Faker::TvShows::GameOfThrones.house,
     email:Faker::Internet.email,
     password: '123456',
     location: ubicacion)
 
-  conversacion =Conversation.create!(
+  conversacion = Conversation.create!(
     name:Faker::TvShows::GameOfThrones.character,
     speaker_one:usuario,
-    speaker_two:usuario)
+    speaker_two:usuario,
+    joboffer: Joboffer.first)
 
   habilidad = Skill.create!(
-    name:Faker::Job.title,
+    name: Faker::Job.position,
     user: usuario)
 
   joboffers = Joboffer.create!(
