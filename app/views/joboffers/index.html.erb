@@ -2,44 +2,39 @@
 
 <h1>Joboffers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Photo</th>
-      <th>Budget</th>
-      <th>Location</th>
-      <th>Skill</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>User</th>
-      <th>Conversation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @joboffers.each do |joboffer| %>
-      <tr>
-        <td><%= joboffer.title %></td>
-        <td><%= joboffer.description %></td>
-        <td><%= joboffer.photo %></td>
-        <td><%= joboffer.budget %></td>
-        <td><%= joboffer.location_id %></td>
-        <td><%= joboffer.skill_id %></td>
-        <td><%= joboffer.start_date %></td>
-        <td><%= joboffer.end_date %></td>
-        <td><%= joboffer.user_id %></td>
-        <td><%= joboffer.conversation %></td>
-        <td><%= link_to 'Show', joboffer %></td>
-        <td><%= link_to 'Edit', edit_joboffer_path(joboffer) %></td>
-        <td><%= link_to 'Destroy', joboffer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="container-fluid">
+    
+    <div class="row">
+      <% @joboffers.each_slice(3) do |row| %>
+        <% row.each do |joboffer| %>
+          <div class="col">
+            <div style="margin: 10px" class="card border bg-light">  
+              <div style="padding: 10px" class="body">
+                <tr>
+                      <td><%= image_tag joboffer.photo,size:'400x200', class: "card-img-top" %></td>
+                      <td><h5><%= joboffer.title %></h5></td>
+                      <td><%= joboffer.description %></td>
+                      
+                      <td><%= joboffer.budget %></td>
+                      <td><%= joboffer.location_id %></td>
+                      <td><%= joboffer.skill_id %></td>
+                      <td><%= joboffer.start_date %></td>
+                      <td><%= joboffer.end_date %></td>
+                      <td><%= joboffer.user_id %></td>
+                      <td><%= joboffer.conversation %></td>
+                      <td><%= link_to "Ver Anuncio", joboffer_path(joboffer), class:'btn btn-success' %></td>
+                      <td><%= link_to 'Edit', edit_joboffer_path(joboffer), class: 'btn btn-info' %></td>
+                      <td><%= link_to 'Destroy', joboffer, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="w-100"> </div>
+      <% end %>
 
-<%= link_to 'New Joboffer', new_joboffer_path %>
+    </div>
+    <%= link_to 'New Joboffer', new_joboffer_path %>
