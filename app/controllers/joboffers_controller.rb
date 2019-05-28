@@ -21,6 +21,9 @@ class JoboffersController < ApplicationController
   def edit
   end
 
+  def agreement
+  end
+
   # POST /joboffers
   # POST /joboffers.json
   def create

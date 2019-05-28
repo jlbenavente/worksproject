@@ -1,7 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Joboffers</h1>
+<div class="container-fluid">
+     <%= render 'layouts/navbar' %>
+    
+    <div class="row">
+      <% @joboffers.each_slice(3) do |row| %>
+        <% row.each do |joboffer| %>
+          <div class="col">
+            <div style="margin: 10px" class="card border bg-light">  
+              <div style="padding: 10px" class="body">
+                <tr>
+                      <td><%= image_tag joboffer.photo,size:'400x200', class: "card-img-top" %></td>
+                      <td><h5><%= joboffer.title %></h5></td>
+                      <td><%= joboffer.description %></td>
+                      
+                      <td><%= joboffer.budget %></td>
+                      <td><%= joboffer.location_id %></td>
+                      <td><%= joboffer.skill_id %></td>
+                      <td><%= joboffer.start_date %></td>
+                      <td><%= joboffer.end_date %></td>
+                      <td><%= joboffer.user_id %></td>
+                      <td><%= joboffer.conversation %></td>
+                      <td><%= link_to "Ver Anuncio", joboffer, class:'btn btn-success' %></td>
+                      <td><%= link_to 'Edit', edit_joboffer_path(joboffer), class: 'btn btn-info' %></td>
+                      <td><%= link_to 'Destroy', joboffer, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="w-100"> </div>
+      <% end %>
 
+<<<<<<< HEAD
 
 
 <div class="container-fluid">
@@ -36,5 +67,7 @@
         <div class="w-100"> </div>
       <% end %>
 
+=======
+>>>>>>> 84d8b625c7f9c4cfe36ae68b2439e0c7b7224889
     </div>
     <%= link_to 'New Joboffer', new_joboffer_path %>

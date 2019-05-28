@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :sended_messages, class_name: 'Messages', foreign_key: 'sender_id'
   has_many :received_messages, class_name: 'Messages', foreign_key: 'receiver_id'
 
-  has_many :joboffer
+  has_many :joboffer, through: :agreement
   has_many :comment
   has_many :agreement
   has_many :skill
