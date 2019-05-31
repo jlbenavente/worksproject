@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :location
-
   has_many :conversation_as_speaker_one, class_name: 'Conversation', foreign_key: 'speaker_one_id'
   has_many :conversation_as_speaker_two, class_name: 'Conversation', foreign_key: 'speaker_two_id'
 
@@ -19,5 +17,6 @@ class User < ApplicationRecord
   has_many :picture
 
   has_one :rol
+  has_one :location
   
 end
