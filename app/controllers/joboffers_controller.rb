@@ -1,6 +1,6 @@
 class JoboffersController < ApplicationController
   before_action :set_joboffer, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create]
   # GET /joboffers
   # GET /joboffers.json
   def index
@@ -28,7 +28,7 @@ class JoboffersController < ApplicationController
   # POST /joboffers.json
   def create
     @joboffer = Joboffer.new(joboffer_params)
-
+    @joboffer.user = current_user
     respond_to do |format|
       if @joboffer.save
         format.html { redirect_to @joboffer, notice: 'Joboffer was successfully created.' }

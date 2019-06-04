@@ -5,6 +5,6 @@ class Joboffer < ApplicationRecord
   belongs_to :skill
 
   has_one :agreement
-belongs_to :user, :optional => true
+  belongs_to :user
   has_many :comment
 end
