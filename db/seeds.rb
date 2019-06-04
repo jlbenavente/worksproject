@@ -21,9 +21,9 @@
 # end
 
     usuario = User.create!(
-    name:'jose',
-    last_name:'benavente',
-    email:'josebc@gmail.com',
+    name:Faker::TvShows::HeyArnold.character,
+    last_name:Faker::Nation.capital_city,
+    email:Faker::Internet.email,
     password: '123456')
 
     habilidad = Skill.create!(
@@ -37,9 +37,14 @@
     joboffer: Joboffer.first)
 
   
-
-    Joboffer.create!(
-    [
-      {title: 'Constructor', user: usuario, description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quia libero velit voluptatibus qui perspiciatis', skill: habilidad, location: 'santiago', conversation: conversacion, photo: 'https://conpocaslucas.files.wordpress.com/2006/10/bachcacho1.jpg?w=420'}
-    ]
-  )
+    12.times do |i|
+      Joboffer.create(
+        title: 'Constructor',
+        user: usuario,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quia libero velit voluptatibus qui perspiciatis',
+        skill: habilidad,
+        location: location,
+        conversation: conversacion,
+        photo: "http://lorempixel.com/400/300/technics/#{i + 1}/"
+      )
+    end

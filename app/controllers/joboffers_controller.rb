@@ -4,7 +4,7 @@ class JoboffersController < ApplicationController
   # GET /joboffers
   # GET /joboffers.json
   def index
-    @joboffers = Joboffer.all
+    @joboffers = Joboffer.all.order('created_at DESC')
   end
 
   # GET /joboffers/1
