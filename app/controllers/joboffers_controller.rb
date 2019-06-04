@@ -1,6 +1,7 @@
 class JoboffersController < ApplicationController
-  before_action :set_joboffer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create]
+  #before_action :set_joboffer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :show]
+  load_and_authorize_resource
   # GET /joboffers
   # GET /joboffers.json
   def index

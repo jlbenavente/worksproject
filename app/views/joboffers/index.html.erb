@@ -15,8 +15,16 @@
                       <td><%= joboffer.location_id %></td>
                       <td><%= joboffer.user_id %></td>
                       <td><%= link_to "Mostrar", joboffer_path(joboffer), class:'btn btn-success' %></td>
-                      <td><%= link_to 'Editar', edit_joboffer_path(joboffer), class: 'btn btn-info' %></td>
-                      <td><%= link_to 'Eliminar', joboffer, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td>
+                        <% if can?(:edit, joboffer) %>
+                        <%= link_to 'Editar', edit_joboffer_path(joboffer), class: 'btn btn-info' %>
+                        <% end %>
+                      </td>
+                      <td>
+                        <% if can?(:destroy, joboffer) %>
+                        <%= link_to 'Eliminar', joboffer, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% end %>
+                      </td>
                     </tr>
                 
               </div>
